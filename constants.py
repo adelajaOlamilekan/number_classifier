@@ -1,0 +1,1 @@
+FUN_FACT_URL = "http://numbersapi.com"
