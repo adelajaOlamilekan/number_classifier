@@ -20,6 +20,6 @@ app.include_router(router.router)
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exec:RequestValidationError):
     return JSONResponse(
-        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        status_code=status.HTTP_400_BAD_REQUEST,
         content=jsonable_encoder({"number":"alphabet", "error": True})
     )
