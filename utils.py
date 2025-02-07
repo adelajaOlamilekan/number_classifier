@@ -11,6 +11,9 @@ def check_prime(number:int):
     return True
 
 def check_perfect(number:int):
+    if number == 0:
+        return False
+    
     num_sum = 0
 
     for i in range(1, number):
