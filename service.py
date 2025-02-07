@@ -1,6 +1,7 @@
 import utils
 import schema
 from fastapi import HTTPException, status
+from fastapi.encoders import jsonable_encoder
 
 def classify_number(number):
     
@@ -16,13 +17,15 @@ def classify_number(number):
 
 def serialize_response(number, is_prime:bool, is_perfect:bool, is_armstrong:bool, 
                        is_odd:bool, digit_sum:int, fun_fact:str):
-    return schema.ClassifierResponse(
+    return jsonable_encoder(
+        schema.ClassifierResponse(
         number = number,
         is_prime=is_prime,
         is_perfect=is_perfect,
         properties=number_properties(is_armstrong, is_odd),
         digit_sum=digit_sum,
         fun_fact=fun_fact
+        )
     )
 
 def number_properties(is_armstrong:bool, is_odd:bool):
