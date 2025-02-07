@@ -3,8 +3,6 @@ import schema
 from fastapi import HTTPException, status
 
 def classify_number(number):
-    if not number.isdigit():
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Not a valid number")
     
     number = int(number)
     is_prime = utils.check_prime(number)
