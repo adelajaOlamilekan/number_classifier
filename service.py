@@ -4,8 +4,9 @@ from fastapi import HTTPException, status
 from fastapi.encoders import jsonable_encoder
 
 def classify_number(number):
-    
-    number = int(number)
+
+   if number < 0:
+    number *= -1 
     is_prime = utils.check_prime(number)
     is_perfect = utils.check_perfect(number)
     is_armstrong = utils.check_armstrong(number)
